@@ -141,9 +141,7 @@ function finity.new(isdark, gprojectName, thinProject)
 	local self = finity
 
 	if not finity.gs["RunService"]:IsStudio() and self.gs["CoreGui"]:FindFirstChild("FinityUI") then
-		warn("finity:", "instance already exists in coregui!")
-		
-		return
+		self.gs["CoreGui"]:FindFirstChild("FinityUI"):Destroy();
 	end
 
 	local theme = finity.theme
