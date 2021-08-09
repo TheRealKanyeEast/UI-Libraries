@@ -43,8 +43,8 @@ local Themes = {
 	},
 	Dark = {
 		MainFrame = Color3.fromRGB(30,30,30),
-		Minimise = Color3.fromRGB(255, 49, 49),
-		MinimiseAccent = Color3.fromRGB(147, 0, 0),
+		Minimise = Color3.fromRGB(255, 25, 0),
+		MinimiseAccent = Color3.fromRGB(255, 0, 110),
 		Maximise = Color3.fromRGB(25,255,0),
 		MaximiseAccent = Color3.fromRGB(0,255,110),
 		NavBar = Color3.fromRGB(55,55,55),
