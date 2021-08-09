@@ -744,7 +744,7 @@ function Material.Load(Config)
 
 	local NewInstance = Objects.new("ScreenGui")
 	NewInstance.Name = Title
-    ProtectFunctions[GetExploit()](NewInstance);
+    NewInstance.Parent = CoreGuiService
 
     getgenv().OldInstance = NewInstance;
 
