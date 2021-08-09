@@ -2249,7 +2249,7 @@ function Material.Load(Config)
 			Label.ImageTransparency = 1
 			Label.Parent = PageContentFrame
 
-			if ShadowYes then
+			if ShadowYes  == true then
 				local ButtonShadow = Objects.new("Shadow")
 				ButtonShadow.ImageColor3 = ThisTheme.Button
 				ButtonShadow.ImageTransparency = 1
@@ -2267,7 +2267,7 @@ function Material.Load(Config)
 			LabelLabel.Parent = Label
 
 			TweenService:Create(Label, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
-			if ShadowYes then
+			if ShadowYes == true then
 				TweenService:Create(ButtonShadow, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
 			end
 			TweenService:Create(LabelLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
