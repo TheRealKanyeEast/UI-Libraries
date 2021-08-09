@@ -2239,29 +2239,41 @@ function Material.Load(Config)
 		
 		function OptionLibrary.Label(LabelConfig)
 			local LabelText = LabelConfig.Text or "nil label"
+			local LabeltextSide = LabelConfig.Side or "Left"
+
+			local Label = Objects.new("SmoothButton")
+			Label.Name = "Label"
+			Label.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
+			Label.ImageColor3 = ThisTheme.Button
+			Label.ImageTransparency = 1
+			Label.Parent = Parent
+
+			local ButtonShadow = Objects.new("Shadow")
+			ButtonShadow.ImageColor3 = ThisTheme.Button
+			ButtonShadow.ImageTransparency = 1
+			ButtonShadow.Parent = Button
+
+			local LabelLabel = Objects.new("Label")
+			LabelLabel.Text = LabelText
+			LabelLabel.TextXAlignment = Enum.TextXAlignment[LabeltextSide]
+			LabelLabel.TextColor3 = ThisTheme.ButtonAccent
+			LabelLabel.Font = Enum.Font.GothamSemibold
+			LabelLabel.TextSize = 14
+			LabelLabel.ClipsDescendants = true
+			LabelLabel.TextTransparency = 1
+			LabelLabel.Parent = Label
+
+			TweenService:Create(Label, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
+			TweenService:Create(ButtonShadow, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
+			TweenService:Create(LabeLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+
+			local LabelLibrary = {}
 			
-			local LabelContainer = Objects.new("Round")
-			LabelContainer.Name = "Label"
-			LabelContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,20)
-			LabelContainer.ImageColor3 = Theme.MainFrame
-			LabelContainer.Parent = PageContentFrame
-			
-			local LabelContent = Objects.new("Label")
-			LabelContent.TextColor3 = Theme.ChipSet
-			LabelContent.Text = LabelText:upper()
-			LabelContent.TextSize = 12
-			LabelContent.Font = Enum.Font.GothamSemibold
-			LabelContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
-			LabelContent.Position = UDim2.fromOffset(5,0)
-			LabelContent.Parent = LabelContainer
-			
-			local LabelOptions = {}
-			
-			function LabelOptions.SetText(Text)
-				LabelContent.Text = Text
+			function LabelLibrary.SetText(Val)
+				LabelLabel.text = Val
 			end
-			
-			return LabelOptions
+
+			return LabelLibrary
 		end
 
 		function OptionLibrary.Slider(SliderConfig)
