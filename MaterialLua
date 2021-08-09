@@ -2246,12 +2246,12 @@ function Material.Load(Config)
 			Label.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
 			Label.ImageColor3 = ThisTheme.Button
 			Label.ImageTransparency = 1
-			Label.Parent = Parent
+			Label.Parent = PageContentFrame
 
 			local ButtonShadow = Objects.new("Shadow")
 			ButtonShadow.ImageColor3 = ThisTheme.Button
 			ButtonShadow.ImageTransparency = 1
-			ButtonShadow.Parent = Button
+			ButtonShadow.Parent = Label
 
 			local LabelLabel = Objects.new("Label")
 			LabelLabel.Text = LabelText
