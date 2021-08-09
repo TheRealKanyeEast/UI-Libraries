@@ -2240,6 +2240,7 @@ function Material.Load(Config)
 		function OptionLibrary.Label(LabelConfig)
 			local LabelText = LabelConfig.Text or "nil label"
 			local LabeltextSide = LabelConfig.Side or "Left"
+			local ShadowYes = LebelConfig.Shadow or false
 
 			local Label = Objects.new("SmoothButton")
 			Label.Name = "Label"
@@ -2248,10 +2249,12 @@ function Material.Load(Config)
 			Label.ImageTransparency = 1
 			Label.Parent = PageContentFrame
 
-			local ButtonShadow = Objects.new("Shadow")
-			ButtonShadow.ImageColor3 = ThisTheme.Button
-			ButtonShadow.ImageTransparency = 1
-			ButtonShadow.Parent = Label
+			if ShadowYes then
+				local ButtonShadow = Objects.new("Shadow")
+				ButtonShadow.ImageColor3 = ThisTheme.Button
+				ButtonShadow.ImageTransparency = 1
+				ButtonShadow.Parent = Label
+			end
 
 			local LabelLabel = Objects.new("Label")
 			LabelLabel.Text = LabelText
