@@ -725,13 +725,13 @@ function Material.Load(Config)
         Table.ProtoSmasher = pebc_create;
         Table.Sentinel = issentinelclosure;
         Table.ScriptWare = getexecutorname;
-    
+
         for ExploitName, ExploitFunction in next, Table do
             if (ExploitFunction) then
                 return ExploitName;
             end;
         end;
-        
+
         return "Undefined";
     end;
 
@@ -1803,7 +1803,7 @@ function Material.Load(Config)
 
 			local ColorShadow = Objects.new("Shadow")
 			ColorShadow.ImageColor3 = Theme.ColorPickerAccent
-			ColorShadow.ImageTransparency = 1 
+			ColorShadow.ImageTransparency = 1
 			ColorShadow.Parent = ColorBar
 
 			local ColorLabel = Objects.new("Label")
@@ -1885,7 +1885,7 @@ function Material.Load(Config)
 
 			local BlackWhiteGradient = Objects.new("UIGradient")
 			BlackWhiteGradient.Color = ColorSequence.new(
-				Color3.new(1,1,1), 
+				Color3.new(1,1,1),
 				Color3.new(0,0,0)
 			)
 
@@ -1956,11 +1956,11 @@ function Material.Load(Config)
 			H:GetPropertyChangedSignal("Value"):Connect(function()
 				ColorTracker.ImageColor3 = Color3.fromHSV(H.Value,S.Value,V.Value)
 				SaturationGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				SaturationShadowGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				ColorPickerCallback(Color3.fromHSV(H.Value,S.Value,V.Value))
@@ -1969,11 +1969,11 @@ function Material.Load(Config)
 			S:GetPropertyChangedSignal("Value"):Connect(function()
 				ColorTracker.ImageColor3 = Color3.fromHSV(H.Value,S.Value,V.Value)
 				SaturationGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				SaturationShadowGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				ColorPickerCallback(Color3.fromHSV(H.Value,S.Value,V.Value))
@@ -1982,11 +1982,11 @@ function Material.Load(Config)
 			V:GetPropertyChangedSignal("Value"):Connect(function()
 				ColorTracker.ImageColor3 = Color3.fromHSV(H.Value,S.Value,V.Value)
 				SaturationGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				SaturationShadowGrad.Color = ColorSequence.new(
-					Color3.fromHSV(H.Value,1,V.Value), 
+					Color3.fromHSV(H.Value,1,V.Value),
 					Color3.fromRGB(0,0,0):Lerp(Color3.fromRGB(255,255,255),V.Value)
 				)
 				ColorPickerCallback(Color3.fromHSV(H.Value,S.Value,V.Value))
@@ -2236,7 +2236,7 @@ function Material.Load(Config)
 
 			return TextFieldLibrary
 		end
-		
+
 		function OptionLibrary.Label(LabelConfig)
 			local LabelText = LabelConfig.Text or "nil label"
 			local LabeltextSide = LabelConfig.Side or "Left"
@@ -2254,6 +2254,7 @@ function Material.Load(Config)
 				ButtonShadow.ImageColor3 = ThisTheme.Button
 				ButtonShadow.ImageTransparency = 1
 				ButtonShadow.Parent = Label
+				TweenService:Create(ButtonShadow, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
 			end
 
 			local LabelLabel = Objects.new("Label")
@@ -2267,13 +2268,10 @@ function Material.Load(Config)
 			LabelLabel.Parent = Label
 
 			TweenService:Create(Label, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
-			if ShadowYes == true then
-				TweenService:Create(ButtonShadow, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
-			end
 			TweenService:Create(LabelLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 
 			local LabelLibrary = {}
-			
+
 			function LabelLibrary.SetText(Val)
 				LabelLabel.text = Val
 			end
