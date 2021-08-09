@@ -2265,7 +2265,7 @@ function Material.Load(Config)
 
 			TweenService:Create(Label, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
 			TweenService:Create(ButtonShadow, TweenInfo.new(0.5), {ImageTransparency = 0}):Play()
-			TweenService:Create(LabeLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+			TweenService:Create(LabelLabel, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 
 			local LabelLibrary = {}
 			
