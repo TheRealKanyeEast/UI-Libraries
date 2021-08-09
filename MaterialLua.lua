@@ -2245,7 +2245,7 @@ function Material.Load(Config)
 			local Label = Objects.new("SmoothButton")
 			Label.Name = "Label"
 			Label.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
-			Label.ImageColor3 = ThisTheme.Button
+			Label.ImageColor3 = ThisTheme.MainFrame
 			Label.ImageTransparency = 1
 			Label.Parent = PageContentFrame
 
