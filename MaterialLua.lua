@@ -2159,6 +2159,88 @@ function Material.Load(Config)
 			return ToggleLibrary
 		end
 
+		function OptionLibrary.KeyBind(KeyBindConfig)
+			local TextFieldText = KeyBindConfig.Text or "nil key bind"
+			local TextFieldInputType = KeyBindConfig.Type or KeyBindConfig.type or "Default"
+			local TextFieldCallback = KeyBindConfig.Callback or function() print("nil key bind") end
+			local Menu = KeyBindConfig.Menu or {}
+			local change = false
+
+			local TextField = Objects.new("Round")
+			TextField.Name = "TextField"
+			TextField.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
+			TextField.ImageColor3 = Theme.TextField
+			TextField.ImageTransparency = 1
+			TextField.Parent = PageContentFrame
+
+			local TextEffect = Objects.new("Frame")
+			TextEffect.Name = "Effect"
+			TextEffect.BackgroundTransparency = 1
+			TextEffect.BackgroundColor3 = Theme.TextField
+			TextEffect.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,2)
+			TextEffect.Position = UDim2.fromScale(0,1) - UDim2.fromOffset(0,2)
+			TextEffect.Parent = TextField
+
+			local TextShadow = Objects.new("Shadow")
+			TextShadow.ImageColor3 = Theme.TextField
+			TextShadow.ImageTransparency = 1
+			TextShadow.Parent = TextField
+
+			local TextInput = Instance.new("TextBox")
+			TextInput.Name = "Value"
+			TextInput.PlaceholderText = TextFieldText
+			TextInput.PlaceholderColor3 = Theme.TextFieldAccent
+			TextInput.TextInputType = Enum.TextInputType[TextFieldInputType]
+			TextInput.TextColor3 = Theme.TextFieldAccent
+			TextInput.Text = ""
+			TextInput.Font = Enum.Font.GothamSemibold
+			TextInput.TextSize = 14
+			TextInput.TextTransparency = 1
+			TextInput.Parent = TextField
+
+			TweenService:Create(TextField, TweenInfo.new(0.5), {ImageTransparency = 0.8}):Play()
+			TweenService:Create(TextEffect, TweenInfo.new(0.5), {BackgroundTransparency = 0.2}):Play()
+			TweenService:Create(TextShadow, TweenInfo.new(0.5), {ImageTransparency = 0.7}):Play()
+			TweenService:Create(TextInput, TweenInfo.new(0.5), {TextTransparency = 0.5}):Play()
+
+			TextInput.InputBegan:Connect(function(inp)
+				if inp.UserInputType == Enum.UserInputType.MouseButton1 then
+					TweenService:Create(TextField, TweenInfo.new(0.5), {ImageTransparency = 0.7}):Play()
+					TweenService:Create(TextInput, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+					change = true
+				end
+			end)
+
+			TextInput.FocusLost:Connect(function()
+				TweenService:Create(TextField, TweenInfo.new(0.5), {ImageTransparency = 0.8}):Play()
+				TweenService:Create(TextInput, TweenInfo.new(0.5), {TextTransparency = 0.5}):Play()
+				TextFieldCallback(TextInput.Text)
+			end)
+
+			local MenuAdded, MenuBar = TryAddMenu(TextField, Menu, {
+				SetText = function(Value)
+					TextInput.Text = Value
+					TextFieldCallback(TextInput.Text)
+				end
+			})
+
+			if MenuAdded then
+				MenuBar.ImageColor3 = Theme.TextFieldAccent
+			end
+
+			local KeyBindLibrary = {}
+
+			function KeyBindLibrary:SetText(Value)
+				TextInput.Text = Value
+			end
+
+			function KeyBindLibrary:GetText()
+				return TextInput.Text
+			end
+
+			return KeyBindLibrary
+		end
+
 		function OptionLibrary.TextField(TextFieldConfig)
 			local TextFieldText = TextFieldConfig.Text or "nil text field"
 			local TextFieldInputType = TextFieldConfig.Type or TextFieldConfig.type or "Default"
