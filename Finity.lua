@@ -286,7 +286,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		TextSize = 13,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		BackgroundTransparency = 1,
-		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextColor3 = Color3.fromRGB(64, 247, 156),
 		TextStrokeTransparency = 0.3,
 	})
 	
