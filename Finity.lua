@@ -1556,7 +1556,6 @@ function finity.new(isdark, gprojectName, thinProject)
 	self2.sidebar.Parent = self2.container
 	self2.topbar.Parent = self2.container
 	self2.tip.Parent = self2.topbar
-	self2.pdclr.Parent = self2.tip
 
 	return self2, finityData
 end
