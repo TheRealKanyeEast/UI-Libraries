@@ -290,6 +290,15 @@ function finity.new(isdark, gprojectName, thinProject)
 		TextStrokeTransparency = 0.3,
 	})
 	
+	self2.pdclr = self:Create("UIGradient", {
+		Name = "TopbarTipColor",
+		Color = ColorSequence.new{
+			ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 200, 255)),
+			ColorSequenceKeypoint.new(1.00, Color3.fromRGB(64, 247, 156))
+		},
+		Parent = self2.tip,
+	})
+	
 	if projectName then
 		self2.tip.Text = projectName
 	else
