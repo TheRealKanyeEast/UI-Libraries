@@ -296,7 +296,6 @@ function finity.new(isdark, gprojectName, thinProject)
 			ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 200, 255)),
 			ColorSequenceKeypoint.new(1.00, Color3.fromRGB(64, 247, 156))
 		},
-		Parent = self2.tip,
 	})
 	
 	if projectName then
@@ -1557,6 +1556,7 @@ function finity.new(isdark, gprojectName, thinProject)
 	self2.sidebar.Parent = self2.container
 	self2.topbar.Parent = self2.container
 	self2.tip.Parent = self2.topbar
+	self2.pdclr.Parent = self2.tip
 
 	return self2, finityData
 end
