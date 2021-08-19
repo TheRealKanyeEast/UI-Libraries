@@ -135,7 +135,7 @@ function finity:addShadow(object, transparency)
 	shadow.Parent = object
 end
 
-function finity.new(isdark, gprojectName, thinProject)
+function finity.new(isdark, gprojectName, thinProject, sideSecs)
 	local finityObject = {}
 	local self2 = finityObject
 	local self = finity
@@ -405,7 +405,7 @@ function finity.new(isdark, gprojectName, thinProject)
 			ZIndex = 2
 		})
 		
-		if not thinProject then
+		if not sideSecs then
 			category.R = finity:Create("Frame", {
 				Name = "R",
 				AnchorPoint = Vector2.new(1, 0),
@@ -417,7 +417,7 @@ function finity.new(isdark, gprojectName, thinProject)
 			})
 		end
 		
-		if thinProject then
+		if sideSecs then
 			category.L.Size = UDim2.new(1, -20, 1, -3)
 		end
 		
@@ -483,7 +483,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		category.container.Parent = self2.categories
 		category.button.Parent = self2.sidebar
 		
-		if not thinProject then
+		if not sideSecs then
 			category.R.Parent = category.container
 		end
 		
@@ -491,7 +491,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		category.hider.Parent = category.container
 
 		local function calculateSector()
-			if thinProject then
+			if sideSecs then
 				return "L"
 			end
 			
