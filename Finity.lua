@@ -61,7 +61,7 @@ finity.dark_theme = { -- dark
 	main_container = Color3.fromRGB(32, 32, 33),
 	separator_color = Color3.fromRGB(63, 63, 65),
 
-	text_color = Color3.fromRGB(64, 247, 156),
+	text_color = Color3.fromRGB(206, 206, 206),
 
 	category_button_background = Color3.fromRGB(63, 62, 65),
 	category_button_border = Color3.fromRGB(72, 71, 74),
