@@ -988,16 +988,16 @@ function finity.new(isdark, gprojectName, thinProject)
 
 						function cheat:RemoveOption(value)
 							local removed = false
-							for index, option in next, options do
-								table.remove(options, index)
+							for index, option in pairs(options) do
+								if option == value then
+									table.remove(options, index)
 									removed = true
+								end
 							end
 
 							if removed then
 								refreshOptions()
 							end
-
-							return removed
 						end
 
 						function cheat:AddOption(value)
