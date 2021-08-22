@@ -1002,6 +1002,7 @@ function finity.new(isdark, gprojectName, thinProject)
 
 						function cheat:AddOption(value)
 							table.insert(options, value)
+							refreshOptions()
 						end
 
 						function cheat:Refresh(vals)
