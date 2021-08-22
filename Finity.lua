@@ -997,6 +997,7 @@ function finity.new(isdark, gprojectName, thinProject)
 
 							if removed then
 								refreshOptions()
+								cheat.selected.Text = tostring(cheat.value)
 							end
 						end
 
@@ -1014,6 +1015,7 @@ function finity.new(isdark, gprojectName, thinProject)
 									table.insert(options, add)
 									refreshOptions()
 								end
+								cheat.selected.Text = tostring(cheat.value)
 							end
 						end
 
