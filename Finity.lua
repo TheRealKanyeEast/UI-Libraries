@@ -678,7 +678,9 @@ function finity.new(isdark, gprojectName, thinProject)
 							end
 						end)
 						
-						function cheat:SetValue(value)
+						local checkboxFuncs = {}
+						
+						function checkboxFuncs:SetValue(value)
 						    cheat.value = value
 						    if cheat.value then
 							finity.gs["TweenService"]:Create(cheat.outerbox, TweenInfo.new(0.2), {ImageColor3 = theme.checkbox_checked}):Play()
@@ -1525,7 +1527,7 @@ function finity.new(isdark, gprojectName, thinProject)
 				cheat.frame.Parent = sector.container
 				cheat.label.Parent = cheat.frame
 				cheat.container.Parent = cheat.frame
-
+				return checkboxFuncs
 				return cheat
 			end
 
