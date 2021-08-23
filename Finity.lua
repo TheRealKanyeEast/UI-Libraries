@@ -227,7 +227,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		BackgroundTransparency = 0,
 		BackgroundColor3 = theme.main_container,
 		BorderSizePixel = 0,
-		Position = UDim2.new(0.5, 0, 0.5, 0),
+		Position = UDim2.new(0.5, 0, 1.5, 0),
 		Size = UDim2.new(0, 800, 0, 500),
 		ZIndex = 2,
 		ImageTransparency = 1
@@ -1563,6 +1563,10 @@ function finity.new(isdark, gprojectName, thinProject)
 	self2.sidebar.Parent = self2.container
 	self2.topbar.Parent = self2.container
 	self2.tip.Parent = self2.topbar
+
+	wait(.1)
+	self2.container:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Sine", 0.5, true)
+	toggled = not toggled
 
 	return self2, finityData
 end
