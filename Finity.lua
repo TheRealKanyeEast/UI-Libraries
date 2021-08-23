@@ -1566,7 +1566,6 @@ function finity.new(isdark, gprojectName, thinProject)
 
 	wait(.1)
 	self2.container:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Sine", 0.5, true)
-	toggled = not toggled
 
 	return self2, finityData
 end
