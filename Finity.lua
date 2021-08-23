@@ -219,6 +219,12 @@ function finity.new(isdark, gprojectName, thinProject)
 		ResetOnSpawn = false,
 	})
 
+	function finity:HideUI()
+		wait(.1)
+		self2.container:TweenPosition(UDim2.new(0.5, 0, 1.5, 0), "Out", "Sine", 0.5, true)
+		toggled = false
+	end
+
 	self2.container = self:Create("ImageLabel", {
 		Draggable = true,
 		Active = true,
