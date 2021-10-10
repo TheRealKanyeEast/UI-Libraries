@@ -1220,9 +1220,9 @@ function finity.new(isdark, gprojectName, thinProject)
 
 							cheat.value = math.floor((minimum + (maximum - minimum) * percent) * 100) / 100
 							if precise then
-								cheat.numbervalue.Text = math.ceil(tostring(cheat.value)) .. suffix
-							else
 								cheat.numbervalue.Text = tostring(cheat.value) .. suffix
+							else
+								cheat.numbervalue.Text = math.ceil(tostring(cheat.value)) .. suffix
 							end
 
 							if callback then
@@ -1253,9 +1253,9 @@ function finity.new(isdark, gprojectName, thinProject)
 
 								cheat.value = math.floor((minimum + (maximum - minimum) * percent) * 100) / 100
 								if precise then
-									cheat.numbervalue.Text = math.ceil(tostring(cheat.value)) .. suffix
-								else
 									cheat.numbervalue.Text = tostring(cheat.value) .. suffix
+								else
+									cheat.numbervalue.Text = math.ceil(tostring(cheat.value)) .. suffix
 								end
 
 								if callback then
