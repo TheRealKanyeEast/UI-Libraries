@@ -1190,7 +1190,7 @@ function finity.new(isdark, gprojectName, thinProject)
                             }):Play()
                             if callback then
 								local s, e = pcall(function()
-									callback(default)
+									callback(percent)
 								end)
 
 								if not s then warn("error: ".. e) end
