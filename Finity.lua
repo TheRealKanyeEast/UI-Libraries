@@ -1181,7 +1181,7 @@ function finity.new(isdark, gprojectName, thinProject)
                         })
 
                         if data.default then
-                            local size = math.clamp(data.default - cheat.sliderbar.AbsolutePosition.X, 0, 150)
+                            local size = math.clamp(mouse.X - cheat.sliderbar.AbsolutePosition.X, 0, 150)
 							local percent = size / 150
 							local perc = default/maximum
                             cheat.value = math.floor((minimum + (maximum - minimum) * percent) * 100) / 100
@@ -1190,7 +1190,7 @@ function finity.new(isdark, gprojectName, thinProject)
                             }):Play()
                             if callback then
 								local s, e = pcall(function()
-									callback(percent)
+									callback(math.ceil(cheat.value))
 								end)
 
 								if not s then warn("error: ".. e) end
