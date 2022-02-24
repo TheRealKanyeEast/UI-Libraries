@@ -1846,7 +1846,7 @@ do
 			return _self:updateDropdown(dropdown, title, list, callback)
 		end
 
-        return dropdown;
+        return dropdown
 	end
 
 	-- class functions
