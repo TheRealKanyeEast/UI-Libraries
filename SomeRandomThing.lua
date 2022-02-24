@@ -720,6 +720,38 @@ do
 		return button
 	end
 
+	function section:addLabel(title)
+		local textbox = utility:Create("ImageButton", {
+			Name = "Textbox",
+			Parent = self.container,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			Size = UDim2.new(1, 0, 0, 30),
+			ZIndex = 2,
+			Image = "rbxassetid://5028857472",
+			ImageColor3 = themes.DarkContrast,
+			ScaleType = Enum.ScaleType.Slice,
+			SliceCenter = Rect.new(2, 2, 298, 298)
+		}, {
+			utility:Create("TextLabel", {
+				Name = "Title",
+				BackgroundTransparency = 1,
+				Size = UDim2.new(1, 0, 1, 0),
+				ZIndex = 3,
+				Font = Enum.Font.Gotham,
+				Text = title,
+				TextColor3 = themes.TextColor,
+				TextSize = 12,
+				TextTransparency = 0.10000000149012
+			})
+		})
+
+		table.insert(self.modules, textbox)
+		--self:Resize()
+
+		return textbox
+	end
+
 	function section:addToggle(title, default, callback)
 		local toggle = utility:Create("ImageButton", {
 			Name = "Toggle",
@@ -1766,6 +1798,7 @@ do
 		table.insert(self.modules, dropdown)
 		--self:Resize()
 
+		local this = {}
 		local search = dropdown.Search
 		local focused
 
@@ -1804,7 +1837,16 @@ do
 			self:Resize()
 		end)
 
-		return dropdown
+		function this:Get()
+			return search.TextBox.Text
+		end
+
+		local _self = self
+		function this:updateDropdown(title, list, callback)
+			return _self:updateDropdown(dropdown, title, list, callback)
+		end
+
+        return dropdown
 	end
 
 	-- class functions
