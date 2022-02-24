@@ -1937,7 +1937,7 @@ do
 				utility:Tween(section.container.Title, {TextTransparency = 1}, 0.1)
 			end
 
-			task.wait(0.1)
+			wait(0.1)
 
 			page.lastPosition = page.container.CanvasPosition.Y
 			page:Resize()
